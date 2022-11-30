@@ -18,6 +18,10 @@ const ColorPopover = (props: ColorPopoverProps) => {
         vertical: 'bottom',
         horizontal: position === 'start' ? 'left' : 'right'
       }}
+      transformOrigin={{
+        vertical: 'top',
+        horizontal: position === 'start' ? 'left' : 'right'
+      }}
       {...restPopoverProps}
     >
       <Styled.Container>{children}</Styled.Container>

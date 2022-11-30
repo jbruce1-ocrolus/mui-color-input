@@ -65,14 +65,16 @@ export const PrimaryRight: ComponentStory<typeof MuiColorInput> = () => {
   }
 
   return (
-    <MuiColorInput
-      color="warning"
-      value={value}
-      format="hex"
-      fullWidth
-      onChange={handleChange}
-      AdornmentProps={{ position: 'end' }}
-    />
+    <div>
+      <MuiColorInput
+        color="warning"
+        value={value}
+        format="hex"
+        fullWidth
+        onChange={handleChange}
+        AdornmentProps={{ position: 'end' }}
+      />
+    </div>
   )
 }
 PrimaryRight.decorators = [
