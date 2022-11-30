@@ -56,6 +56,10 @@ const It = "linear-gradient(45deg, #ccc 25%, transparent 25%), linear-gradient(1
       vertical: "bottom",
       horizontal: n === "start" ? "left" : "right"
     },
+    transformOrigin: {
+      vertical: "top",
+      horizontal: n === "start" ? "left" : "right"
+    },
     ...a,
     children: /* @__PURE__ */ h(Ft.Container, {
       children: t
@@ -96,12 +100,12 @@ const It = "linear-gradient(45deg, #ccc 25%, transparent 25%), linear-gradient(1
     style: o,
     ...a
   });
-}, L = {
+}, $ = {
   up: "ArrowUp",
   down: "ArrowDown",
   left: "ArrowLeft",
   right: "ArrowRight"
-}, $t = {
+}, Ot = {
   ArrowUp: {
     type: "hsvV",
     value: 1
@@ -119,8 +123,8 @@ const It = "linear-gradient(45deg, #ccc 25%, transparent 25%), linear-gradient(1
     value: 1
   }
 };
-function Lt(e) {
-  return e === L.up || e === L.down || e === L.left || e === L.right;
+function $t(e) {
+  return e === $.up || e === $.down || e === $.left || e === $.right;
 }
 function _(e, t, r) {
   return Math.max(t, Math.min(e, r));
@@ -136,7 +140,7 @@ function nt(e, t, r) {
   });
   return Number(n);
 }
-function Ot(e, t, r) {
+function Lt(e, t, r) {
   const n = e.getBoundingClientRect(), a = t - n.left, o = r - n.top;
   return {
     x: _(a / n.width, 0, 1),
@@ -189,7 +193,7 @@ const ot = {
     const {
       x: k,
       y: I
-    } = Ot(o.current, d, S);
+    } = Lt(o.current, d, S);
     r({
       s: k,
       v: I
@@ -205,12 +209,12 @@ const ot = {
   const p = (d) => {
     d.preventDefault(), a.current = !0, f(d.clientX, d.clientY), s(!0);
   }, y = (d) => {
-    if (Lt(d.key)) {
+    if ($t(d.key)) {
       d.preventDefault();
       const {
         type: S,
         value: k
-      } = $t[d.key], I = d.shiftKey ? 10 : 1, P = S === "hsvS" ? t.s : t.v, N = _(P + k * I * 0.01, 0, 1);
+      } = Ot[d.key], I = d.shiftKey ? 10 : 1, P = S === "hsvS" ? t.s : t.v, N = _(P + k * I * 0.01, 0, 1);
       s(!0), r({
         s: S === "hsvS" ? N : t.s,
         v: S === "hsvV" ? N : t.v
@@ -268,7 +272,7 @@ function l(e, t) {
   var r = Kt(e);
   return e = t === 360 ? e : Math.min(t, Math.max(0, parseFloat(e))), r && (e = parseInt(String(e * t), 10) / 100), Math.abs(e - t) < 1e-6 ? 1 : (t === 360 ? e = (e < 0 ? e % t + t : e % t) / parseFloat(String(t)) : e = e % t / parseFloat(String(t)), e);
 }
-function O(e) {
+function L(e) {
   return Math.min(1, Math.max(0, e));
 }
 function Wt(e) {
@@ -689,7 +693,7 @@ var C = function() {
   }, e.prototype.lighten = function(t) {
     t === void 0 && (t = 10);
     var r = this.toHsl();
-    return r.l += t / 100, r.l = O(r.l), new e(r);
+    return r.l += t / 100, r.l = L(r.l), new e(r);
   }, e.prototype.brighten = function(t) {
     t === void 0 && (t = 10);
     var r = this.toRgb();
@@ -697,7 +701,7 @@ var C = function() {
   }, e.prototype.darken = function(t) {
     t === void 0 && (t = 10);
     var r = this.toHsl();
-    return r.l -= t / 100, r.l = O(r.l), new e(r);
+    return r.l -= t / 100, r.l = L(r.l), new e(r);
   }, e.prototype.tint = function(t) {
     return t === void 0 && (t = 10), this.mix("white", t);
   }, e.prototype.shade = function(t) {
@@ -705,11 +709,11 @@ var C = function() {
   }, e.prototype.desaturate = function(t) {
     t === void 0 && (t = 10);
     var r = this.toHsl();
-    return r.s -= t / 100, r.s = O(r.s), new e(r);
+    return r.s -= t / 100, r.s = L(r.s), new e(r);
   }, e.prototype.saturate = function(t) {
     t === void 0 && (t = 10);
     var r = this.toHsl();
-    return r.s += t / 100, r.s = O(r.s), new e(r);
+    return r.s += t / 100, r.s = L(r.s), new e(r);
   }, e.prototype.greyscale = function() {
     return this.desaturate(100);
   }, e.prototype.spin = function(t) {
@@ -890,7 +894,7 @@ const ye = c.forwardRef((e, t) => {
     ...d
   } = i || {}, S = s || ie, k = w.disabled || y?.disabled || !1, I = c.useRef(null), P = c.useRef(null), [N, X] = c.useState(null), T = n || se, j = ft(r, S, {
     format: T
-  }), [Z, V] = c.useState(r), [J, $] = c.useState(r), gt = (u) => {
+  }), [Z, V] = c.useState(r), [J, O] = c.useState(r), gt = (u) => {
     u.preventDefault(), u.stopPropagation(), !k && !b && X(I.current);
   }, G = (u) => {
     const g = new C(u);
@@ -905,7 +909,7 @@ const ye = c.forwardRef((e, t) => {
     const g = u.target.value;
     V(g);
     const W = new C(g), B = F(W, T);
-    $(B), G(B);
+    O(B), G(B);
   }, bt = (...u) => {
     H?.(...u), X(null), queueMicrotask(() => {
       P.current?.focus();
@@ -917,17 +921,17 @@ const ye = c.forwardRef((e, t) => {
       g.format !== T && V(F(g, T));
     else {
       const W = new C(S), B = F(W, T);
-      V(B), $(B), G(B);
+      V(B), O(B), G(B);
     }
   };
   c.useEffect(() => {
     if (r !== J) {
       const g = ft(r, S).originalInput;
-      $(g), V(g);
+      O(g), V(g);
     }
   }, [r, J, S]);
   const mt = (u) => {
-    V(u), $(u), G(u);
+    V(u), O(u), G(u);
   }, yt = (u) => {
     I.current = u, t && ht(u, t);
   }, xt = (u) => {
