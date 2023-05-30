@@ -23,7 +23,7 @@ const CustomAdornment = (props: ColorButtonProps) => {
   )
 }
 
-export const Primary: StoryFn<typeof MuiColorInput> = () => {
+export const PrimaryLeft: StoryFn<typeof MuiColorInput> = () => {
   const [value, setValue] = React.useState<MuiColorInputValue>('')
 
   const handleChange = (
