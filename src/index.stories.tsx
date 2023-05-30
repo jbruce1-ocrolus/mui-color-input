@@ -118,7 +118,7 @@ CustomButton.decorators = [
   }
 ]
 
-export const RTL: StoryFn<typeof MuiColorInput> = Primary.bind({})
+export const RTL: StoryFn<typeof MuiColorInput> = PrimaryLeft.bind({})
 RTL.decorators = [
   (Story) => {
     const rtlCache = createCache({
