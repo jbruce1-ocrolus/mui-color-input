@@ -10,7 +10,8 @@ type ColorPopoverProps = PopoverProps & {
 const ColorPopover = ({
   children,
   className,
-  position = 'start'
+  position = 'start',
+  ...restPopoverProps
 }: ColorPopoverProps) => {
   return (
     <Popover
