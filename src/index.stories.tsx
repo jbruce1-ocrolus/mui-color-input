@@ -54,7 +54,7 @@ PrimaryLeft.decorators = [
   }
 ]
 
-export const PrimaryRight: ComponentStory<typeof MuiColorInput> = () => {
+export const PrimaryRight: StoryFn<typeof MuiColorInput> = () => {
   const [value, setValue] = React.useState<MuiColorInputValue>('black')
 
   const handleChange = (
@@ -86,7 +86,7 @@ PrimaryRight.decorators = [
   }
 ]
 
-export const CustomButton: ComponentStory<typeof MuiColorInput> = () => {
+export const CustomButton: StoryFn<typeof MuiColorInput> = () => {
   const [value, setValue] = React.useState<MuiColorInputValue>('black')
 
   const handleChange = (
@@ -118,7 +118,7 @@ CustomButton.decorators = [
   }
 ]
 
-export const RTL: StoryFn<typeof MuiColorInput> = Primary.bind({})
+export const RTL: StoryFn<typeof MuiColorInput> = PrimaryLeft.bind({})
 RTL.decorators = [
   (Story) => {
     const rtlCache = createCache({
