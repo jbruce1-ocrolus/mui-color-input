@@ -1,9 +1,9 @@
 import React from 'react'
-import { ColorButtonProps } from '@components/ColorButton/ColorButton'
 import rtlPlugin from 'stylis-plugin-rtl'
+import { ColorButtonProps } from '@components/ColorButton/ColorButton'
 import createCache from '@emotion/cache'
 import { CacheProvider } from '@emotion/react'
-import { createTheme, ThemeProvider, Icon, Button } from '@mui/material'
+import { Button, createTheme, Icon, ThemeProvider } from '@mui/material'
 import { action } from '@storybook/addon-actions'
 import { Meta, StoryFn } from '@storybook/react'
 import { MuiColorInput, MuiColorInputProps, MuiColorInputValue } from './index'
@@ -12,7 +12,6 @@ export default {
   title: 'MuiColorInput',
   component: MuiColorInput
 } as Meta<typeof MuiColorInput>
-
 
 const CustomAdornment = (props: ColorButtonProps) => {
   const { onClick, bgColor } = props
